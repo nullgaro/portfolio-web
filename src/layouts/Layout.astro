@@ -1,0 +1,80 @@
+---
+// import "@fontsource-variable/onest"
+
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import { ViewTransitions } from "astro:transitions"
+
+interface Props {
+    title: string
+    description: string
+}
+
+const { description, title } = Astro.props
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <ViewTransitions />
+    </head>
+
+    <body class="relative text-black dark:text-white">
+        <Header />
+        <slot />
+        <Footer />
+        <style is:global>
+            @font-face {
+                font-family: 'montserrat';
+                src: url('/fonts/montserrat.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'blemo';
+                src: url('/fonts/blemo.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            :root {
+                color-scheme: light dark;
+            }
+
+            html {
+                /* font-family: "Onest Variable", system-ui, sans-serif; */
+                scroll-behavior: smooth;
+            }
+
+            body {
+                color: rgba(17, 17, 17, 0.9);
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                overscroll-behavior: none;
+                background-color: #121529
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: "blemo";
+            }
+
+            p, a {
+                font-family: "montserrat";
+            }
+
+            @media (prefers-color-scheme: dark) {
+                body {
+                    color: rgba(255, 255, 255, 0.9);
+                }
+            }
+        </style>
+    </body>
+</html>
