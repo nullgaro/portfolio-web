@@ -1,0 +1,23 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+import WorkIcon from "./icons/WorkIcon.astro";
+
+import { jobs } from "../../public/data.json";
+
+---
+
+<div class="h-full flex justify-center w-full">
+    <div class="h-full w-[64rem]">
+        <div class="inline-flex flex-row items-center w-52 justify-around mb-8">
+            <WorkIcon class="size-12"/>
+            <h2 class="text-2xl">Experience</h2>
+        </div>
+        <div class="h-[40rem] w-1 bg-slate-700 absolute ml-5 z-0"></div>
+        {jobs.map((data) =>
+            <div class="flex ml-4">
+                <div class="size-3 bg-yellow-400 rounded-full mr-4 mt-6 z-0"></div>
+                <ExperienceItem {...data}></ExperienceItem>
+            </div>
+        )}
+    </div>
+</div>
