@@ -3,10 +3,13 @@ import SocialPill from "./SocialPill.astro"
 import GithubIcon from "./icons/GithubIcon.astro"
 import LinkedinIcon from "./icons/LinkedinIcon.astro"
 import MailIcon from "./icons/MailIcon.astro"
+
+import {Image} from "astro:assets";
+import ProfilePic from "../images/photo.webp";
 ---
 <div class="flex min-h-72 w-full my-24 justify-center items-center">
     <div class="flex flex-row justify-top h-64 w-[64rem]">
-        <img alt="profile" src="/photo.webp" class="size-32 rounded-full mr-8">
+        <Image alt="profile" src={ProfilePic} class="size-32 rounded-full mr-8" />
         <div class="flex flex-col max-w-lg h-full">
             <h1 class="text-4xl font-black mb-4">Hola, soy Daniel Milenov</h1>
             <p class="mb-10">«Versatile developer adept in <span class="text-yellow-400">web, Python, Docker, CI/CD</span>. From frontend finesse to backend brilliance, I tailor solutions to exceed expectations.»</p>
