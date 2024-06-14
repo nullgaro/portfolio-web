@@ -1,0 +1,20 @@
+---
+import DevIcon from "./icons/DevIcon.astro";
+import ProjectItem from "./ProjectItem.astro";
+
+import { projects } from "../data.json";
+
+---
+<div class="h-full flex justify-center w-full">
+    <div class="h-full w-[64rem]">
+        <div class="inline-flex flex-row items-center w-52 mb-8">
+            <DevIcon class="size-10 mr-2"/>
+            <h2 class="text-2xl">Projects</h2>
+        </div>
+        {projects.map((data) =>
+            // <div class="flex flex-col">
+                <ProjectItem {...data}></ProjectItem>
+            // </div>
+        )}
+    </div>
+</div>
