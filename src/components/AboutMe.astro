@@ -1,0 +1,27 @@
+---
+import PersonIcon from "./icons/PersonIcon.astro";
+
+import {Image} from "astro:assets";
+import MePic from "./../images/me.webp"
+---
+<div class="h-full flex justify-center w-full mb-16">
+    <div class="h-full w-[64rem]">
+        <div class="inline-flex flex-row items-center w-52 mb-8">
+            <PersonIcon class="size-10 mr-2"/>
+            <h2 class="text-2xl">About me</h2>
+        </div>
+        <div class="flex justify-around">
+            <div class="max-w-[70ch]">
+                <p class="mb-6">Me llamo Daniel pero mis amigos me dicen Búlgaro. Empecé con la informática con pequeños retos y ahora estoy creciendo con <span class="text-yellow-400">grandes proyectos</span>.</p>
+                <p class="mb-6">Mi mayor virtud es la <span class="text-yellow-400">versatilidad</span> y facilidad de moverme entre tecnologías y ramas. Sigo aprendiendo y mejorando cada día proponiéndome <span class="text-yellow-400">retos que me hagan superar mis limites</span>.</p>
+                <p class="mb-2">Mis <span class="text-yellow-400">valores</span> los tengo claros:</p>
+                <ul class="ml-2 [&>li]:before:content-['-'] [&>li]:before:mr-2">
+                    <li class="mb-2"><span class="text-yellow-400">Compañerismo</span>, ayudar y enseñar es la manera correcta de crecer.</li>
+                    <li class="mb-2"><span class="text-yellow-400">Perfeccionismo</span>, es cierto que lo perfecto no existe, pero si ese es tu objetivo, tu resultado será abrumador.</li>
+                    <li><span class="text-yellow-400">Perseverante</span>, sin duda hay momentos que te hacen dudar o querer rendirte, pero eso no nos detendrá.</li>
+                </ul>
+            </div>
+            <Image alt="profile" src={MePic} class="object-contain w-72 rounded-lg" />
+        </div>
+    </div>
+</div>
