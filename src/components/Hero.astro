@@ -8,7 +8,7 @@ import {Image} from "astro:assets";
 import ProfilePic from "/src/images/photo.webp";
 ---
 <div class="flex min-h-72 w-full my-24 justify-center items-center">
-    <div class="flex flex-row justify-top h-64 w-[64rem]">
+    <div class="flex flex-row justify-top h-64 lg:w-[64rem] md:w-[48rem] p-8">
         <Image alt="profile" src={ProfilePic} class="size-32 rounded-full mr-8" />
         <div class="flex flex-col max-w-lg h-full">
             <h1 class="text-4xl font-black mb-4">Hola, soy Daniel Milenov</h1>
