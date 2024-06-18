@@ -32,7 +32,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.webp'
 if (!images[imgPath]) throw new Error(`"${imgPath}" does not exist in glob: "src/images/*.webp"`);
 ---
 <div class="h-full flex md:p-0 sm:p-12 p-0 w-full flex-col justify-center md:mb-20 sm:mb-0 mb-12">
-    <div class="lg:h-full md:h-80 lg:w-[64rem] md:w-[48rem] flex md:flex-row flex-col justify-around ">
+    <div class="lg:h-full md:h-80 lg:w-[64rem] md:w-[45rem] flex md:flex-row flex-col justify-around">
         <Image src={images[imgPath]()} alt={title} class="object-contain lg:h-64 md:h-full md:w-6/12 w-full mb-8 bg-slate-800 rounded-xl" />
         <div class="lg:h-64 md:h-full md:w-5/12 w-full flex flex-col justify-between">
             <div class="mb-8">
