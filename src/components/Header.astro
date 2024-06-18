@@ -23,11 +23,11 @@ const navItems = [
 ]
 ---
 <header class="flex flex-row justify-center pt-4">
-    <nav class="min-w-96 flex flex-row justify-around bg-slate-500 p-2 rounded-2xl text-sm [&>]:hover:text-yellow-400">
+    <nav class="xxs:min-w-96 min-w-full flex flex-row justify-around bg-slate-500 p-2 rounded-2xl text-sm [&>]:hover:text-yellow-400">
         {
             navItems.map((link) => (
                 <a
-                class="transition hover:text-yellow-500 dark:hover:text-yellow-400"
+                class="transition hover:text-yellow-500 dark:hover:text-yellow-400 xxs:text-sm text-xs"
                 aria-label={link.label}
                 href={link.url}
                 >

@@ -4,9 +4,9 @@ const { position, company, summary, date } = Astro.props
 
 <div class="flex md:flex-row flex-col mb-16">
     <div class="lg:mr-16 md:mr-8 w-60 mb-4">
-        <h3 class="text-lg text-yellow-400 font-black">{position}</h3>
+        <h3 class="text-lg text-yellow-400 font-black xxs:w-fit w-[16ch]">{position}</h3>
         <h4 class="text-lg font-black">{company}</h4>
         <time class="text-base">{date}</time>
     </div>
-    <p class="text-sm lg:w-[60ch] md:w-96 sm:w-[55ch] w-[40ch] leading-normal">{summary}</p>
+    <p class="text-sm lg:w-[60ch] md:w-96 sm:w-[55ch] xs:w-[40ch] xxs:w-[30ch] w-[20ch] leading-normal">{summary}</p>
 </div>
