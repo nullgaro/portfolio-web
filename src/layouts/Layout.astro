@@ -8,13 +8,14 @@ import { ViewTransitions } from "astro:transitions"
 interface Props {
     title: string
     description: string
+    lang: string
 }
 
-const { description, title } = Astro.props
+const { description, title, lang } = Astro.props
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content={description} />
@@ -26,9 +27,9 @@ const { description, title } = Astro.props
     </head>
 
     <body class="relative text-black dark:text-white">
-        <Header />
+        <Header lang={lang}/>
         <slot />
-        <Footer />
+        <Footer lang={lang}/>
         <style is:global>
             @font-face {
                 font-family: 'montserrat';

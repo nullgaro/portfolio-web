@@ -1,5 +1,5 @@
 ---
-const { title, imgPath, link, github, description, technologies } = Astro.props
+const { title, imgPath, link, github, description, technologies, code, preview } = Astro.props
 
 import ProjectLink from "./ProjectLink.astro";
 
@@ -53,14 +53,14 @@ if (!images[imgPath]) throw new Error(`"${imgPath}" does not exist in glob: "src
             <div class="mb-2">
                 <ProjectLink href={ github }>
                     <GithubIcon class="size-6 mr-2" />
-                    Code
+                    {code}
                 </ProjectLink>
 
                 {
                     link &&
                     <ProjectLink href={ link }>
                         <LinkIcon class="size-6 mr-2" />
-                        Preview
+                        {preview}
                     </ProjectLink>
                 }
             </div>

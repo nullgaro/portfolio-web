@@ -3,22 +3,35 @@ import PersonIcon from "./icons/PersonIcon.astro";
 
 import {Image} from "astro:assets";
 import MePic from "./../images/me.webp"
+
+const { lang } = Astro.props
+
+// Texts
+import { aboutme } from "../data.json";
+
+const title = aboutme[lang].title;
+const p1 = aboutme[lang].p1;
+const p2 = aboutme[lang].p2;
+const p3 = aboutme[lang].p3;
+const l1 = aboutme[lang].l1;
+const l2 = aboutme[lang].l2;
+const l3 = aboutme[lang].l3;
 ---
 <div id="about-me" data-section="about-me" class="h-full flex justify-center w-full md:mb-16 mb-8">
     <div class="h-full w-[64rem] p-4">
         <div class="inline-flex flex-row items-center w-52 mb-8">
             <PersonIcon class="size-10 mr-2"/>
-            <h2 class="text-2xl">About me</h2>
+            <h2 class="text-2xl">{title}</h2>
         </div>
         <div class="flex justify-around md:flex-row flex-col-reverse items-center">
             <div class="max-w-[70ch] md:mr-16">
-                <p class="mb-6">Me llamo Daniel pero mis amigos me dicen Búlgaro. Empecé con la informática con pequeños retos y ahora estoy creciendo con <span class="text-yellow-400">grandes proyectos</span>.</p>
-                <p class="mb-6">Mi mayor virtud es la <span class="text-yellow-400">versatilidad</span> y facilidad de moverme entre tecnologías y ramas. Sigo aprendiendo y mejorando cada día proponiéndome <span class="text-yellow-400">retos que me hagan superar mis limites</span>.</p>
-                <p class="mb-2">Mis <span class="text-yellow-400">valores</span> los tengo claros:</p>
+                <Fragment set:html={p1} />
+                <Fragment set:html={p2} />
+                <Fragment set:html={p3} />
                 <ul class="ml-2 [&>li]:before:content-['-'] [&>li]:before:mr-2">
-                    <li class="mb-2"><span class="text-yellow-400">Compañerismo</span>, ayudar y enseñar es la manera correcta de crecer.</li>
-                    <li class="mb-2"><span class="text-yellow-400">Perfeccionismo</span>, es cierto que lo perfecto no existe, pero si ese es tu objetivo, tu resultado será abrumador.</li>
-                    <li><span class="text-yellow-400">Perseverante</span>, sin duda hay momentos que te hacen dudar o querer rendirte, pero eso no nos detendrá.</li>
+                    <Fragment set:html={l1} />
+                    <Fragment set:html={l2} />
+                    <Fragment set:html={l3} />
                 </ul>
             </div>
             <Image alt="profile" src={MePic} class="object-contain md:w-72 w-48 rounded-lg mb-8" />

@@ -1,23 +1,25 @@
 ---
+const { lang } = Astro.props;
+
+import { header } from "../data.json";
+
+const { experience, projects, skills, aboutme } = header[lang];
+
 const navItems = [
     {
-        title: "Experiencia",
-        label: "experiencia",
+        ...experience,
         url: "/#experience",
     },
     {
-        title: "Proyectos",
-        label: "proyectos",
+        ...projects,
         url: "/#projects",
     },
     {
-        title: "Habilidades",
-        label: "habilidades",
+        ...skills,
         url: "/#skills",
     },
     {
-        title: "Sobre mí",
-        label: "sobre-mi",
+        ...aboutme,
         url: "/#about-me",
     },
 ]

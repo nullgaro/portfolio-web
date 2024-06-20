@@ -6,17 +6,26 @@ import MailIcon from "./icons/MailIcon.astro"
 
 import {Image} from "astro:assets";
 import ProfilePic from "/src/images/photo.webp";
+
+const { lang } = Astro.props
+
+// Texts
+import { hero } from "../data.json";
+
+const title = hero[lang].title;
+const description = hero[lang].description;
+const contactme = hero[lang].contactme;
 ---
 <div class="flex min-h-72 w-full md:mt-24 md:mb-24 mt-16 justify-center items-center">
     <div class="flex flex-row justify-top md:h-64 lg:w-[64rem] md:w-[48rem] p-8">
         <Image alt="profile" src={ProfilePic} class="md:size-32 xxs:size-20 size-24 rounded-full xxs:mt-0 mt-3 md:mr-8 md:relative absolute md:left-0 left-8" />
         <div class="flex flex-col md:max-w-lg w-full h-full">
-            <h1 class="text-4xl font-black mb-4 md:max-w-fit xxs:max-w-[12ch] max-w-[8ch] md:ml-0 xxs:ml-24 ml-28">Hola, soy Daniel Milenov</h1>
-            <p class="mb-10">«Versatile developer adept in <span class="text-yellow-400">web, Python, Docker, CI/CD</span>. From frontend finesse to backend brilliance, I tailor solutions to exceed expectations.»</p>
+            <h1 class="text-4xl font-black mb-4 md:max-w-fit xxs:max-w-[12ch] max-w-[8ch] md:ml-0 xxs:ml-24 ml-28">{title}</h1>
+            <Fragment set:html={description} />
             <div class="flex sm:w-64 w-full justify-start sm:flex-nowrap flex-wrap">
                 <SocialPill href="mailto:danimilenovvalov@gmail.com">
                     <MailIcon class="size-4 mr-2"/>
-                    Contáctame
+                    {contactme}
                 </SocialPill>
                 <SocialPill href="https://linkedin.com/in/daniel-milenov">
                     <LinkedinIcon class="size-4 mr-2"/>
