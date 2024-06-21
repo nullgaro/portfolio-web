@@ -1,0 +1,91 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+import GearIcon from "./icons/GearIcon.astro";
+
+const { lang } = Astro.props;
+
+import { configuration } from "../data.json";
+
+const { theme, light, dark, system, languages, spanish, english } = configuration[lang];
+---
+<button onmouseover="showDrowpdown('first-dropdown')" onmouseout="hideDrowpdown('first-dropdown')" class="relative">
+    <GearIcon class="size-4 [&>*]:transition [&>*]:hover:stroke-yellow-500 dark:[&>*]:hover:stroke-yellow-400"/>
+    <div id="first-dropdown" class="absolute hidden bg-slate-200 dark:bg-slate-600 p-2 border border-white dark:border-neutral-500 shadow-xl rounded-md text-left right-[-2px]">
+        <div onmouseover="showDrowpdown('theme-dropdown')" onmouseout="hideDrowpdown('theme-dropdown')">
+            <p class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{theme}</p>
+            <ul id="theme-dropdown" class=`absolute hidden bg-slate-200 dark:bg-slate-600 p-2 border border-white dark:border-neutral-500 shadow-xl rounded-md ${lang === "en" ? "right-[5rem]" : "right-[4rem]"} top-0`>
+                <li onclick="setTheme('light')" class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{light}</li>
+                <li onclick="setTheme('dark')" class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{dark}</li>
+                <li onclick="setTheme('system')" class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{system}</li>
+            </ul>
+        </div>
+        <div onmouseover="showDrowpdown('language-dropdown')" onmouseout="hideDrowpdown('language-dropdown')">
+            <p class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{languages}</p>
+            <ul id="language-dropdown" class="absolute hidden bg-slate-200 dark:bg-slate-600 p-2 border border-white dark:border-neutral-500 shadow-xl rounded-md">
+                <li onclick="window.location.assign('/')" class="transition hover:text-yellow-500 dark:hover:text-yellow-400">{spanish}</li>
+                <li onclick="window.location.assign('/')" class="transition hover:text-yellow-500 dark:hover:text-yellow-400">{english}</li>
+            </ul>
+        </div>
+    </div>
+</button>
+<script is:inline >
+    function showDrowpdown(id) {
+        const DropDown = document.getElementById(id);
+        DropDown.style.display = "inline";
+    }
+    function hideDrowpdown(id) {
+        const DropDown = document.getElementById(id);
+        const Button = document.getElementsByTagName("button")[0];
+        timer = setTimeout(() => {
+            if (id === "first-dropdown") {
+                if (! Button.matches(':hover')) {
+                    DropDown.style.display = "none";
+                }
+            } else {
+                if (! DropDown.matches(':hover')) {
+                    DropDown.style.display = "none";
+                }
+            }
+        }, "500");
+    }
+
+
+    const getThemePreference = () => {
+        if (typeof localStorage !== "undefined") {
+            return localStorage.getItem("theme") ?? "system"
+        }
+
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"
+    }
+
+    const updateTheme = () => {
+        console.log("Entra")
+        const themePreference = getThemePreference()
+        const isDark =
+            themePreference === "dark" ||
+            (themePreference === "system" && matchMedia("(prefers-color-scheme: dark)").matches)
+
+        document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+    }
+
+    updateTheme()
+
+    function setTheme(theme) {
+        if (theme === "system") {
+            localStorage.removeItem("theme")
+
+            const matchMedia = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"
+
+            document.documentElement.style.setProperty("color-scheme", matchMedia);
+        } else {
+            localStorage.setItem("theme", theme)
+            document.documentElement.style.setProperty("color-scheme", theme);
+        }
+        updateTheme()
+    }
+</script>

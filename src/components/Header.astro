@@ -1,4 +1,8 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+import Configuration from "./Configuration.astro";
+
 const { lang } = Astro.props;
 
 import { header } from "../data.json";
@@ -8,19 +12,19 @@ const { experience, projects, skills, aboutme } = header[lang];
 const navItems = [
     {
         ...experience,
-        url: "/#experience",
+        url: getRelativeLocaleUrl(lang, "/#experience").slice(0, -1),
     },
     {
         ...projects,
-        url: "/#projects",
+        url: getRelativeLocaleUrl(lang, "/#projects").slice(0, -1),
     },
     {
         ...skills,
-        url: "/#skills",
+        url: getRelativeLocaleUrl(lang, "/#skills").slice(0, -1),
     },
     {
         ...aboutme,
-        url: "/#about-me",
+        url: getRelativeLocaleUrl(lang, "/#about-me").slice(0, -1),
     },
 ]
 ---
@@ -37,6 +41,6 @@ const navItems = [
                 </a>
             ))
         }
-        <!-- Special button <a href="/#about">Boton de busqueda (hacer)</a> -->
+        <Configuration lang={lang}/>
     </nav>
 </header>
