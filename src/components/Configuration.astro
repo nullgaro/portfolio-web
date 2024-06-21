@@ -1,6 +1,4 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-
 import GearIcon from "./icons/GearIcon.astro";
 
 const { lang } = Astro.props;
@@ -62,7 +60,6 @@ const { theme, light, dark, system, languages, spanish, english } = configuratio
     }
 
     const updateTheme = () => {
-        console.log("Entra")
         const themePreference = getThemePreference()
         const isDark =
             themePreference === "dark" ||
