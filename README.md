@@ -25,6 +25,14 @@ git clone https://github.com/nullgaro/portfolio-web.git
 cd portfolio-web
 ```
 
+### Rename data.json.example
+
+To get the information correctly populated you have to rename the data.json.example to data.json:
+
+```sh
+mv src/data.json.example src/data.json
+```
+
 ### Install Dependencies
 
 This project requires Node.js and npm. Install the dependencies by running:
