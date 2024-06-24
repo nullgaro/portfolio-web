@@ -1,0 +1,342 @@
+{
+    "configuration": {
+        "es": {
+            "theme": "Tema",
+            "light": "Claro",
+            "dark": "Oscuro",
+            "system": "Sistema",
+            "languages": "Idiomas",
+            "spanish": "Español",
+            "english": "Inglés"
+        },
+        "en": {
+            "theme": "Theme",
+            "light": "Light",
+            "dark": "Dark",
+            "system": "System",
+            "languages": "Languages",
+            "spanish": "Spanish",
+            "english": "English"
+        }
+    },
+    "header": {
+        "es": {
+            "experience": {
+                "title": "Experiencia",
+                "label": "experiencia"
+            },
+            "projects": {
+                "title": "Proyectos",
+                "label": "proyectos"
+            },
+            "skills": {
+                "title": "Habilidades",
+                "label": "habilidades"
+            },
+            "aboutme": {
+                "title": "Sobre mi",
+                "label": "sobre-mi"
+            }
+        },
+        "en": {
+            "experience": {
+                "title": "Experience",
+                "label": "experience"
+            },
+            "projects": {
+                "title": "Projects",
+                "label": "projects"
+            },
+            "skills": {
+                "title": "Skills",
+                "label": "skills"
+            },
+            "aboutme": {
+                "title": "About me",
+                "label": "about-me"
+            }
+        }
+    },
+    "hero": {
+        "es": {
+            "title": "Hola, soy Daniel Milenov",
+            "description": "<p class='mb-10'>«Desarrollador versátil experto en <span class='text-yellow-500 dark:text-yellow-400'>web, Python, Docker, CI/CD</span>. Desde la delicadeza del frontend hasta la brillantez del backend, adapto soluciones para superar las expectativas.»</p>",
+            "contactme": "Contactame"
+        },
+        "en": {
+            "title": "Hi, I'm Daniel Milenov",
+            "description": "<p class='mb-10'>«Versatile developer adept in <span class='text-yellow-500 dark:text-yellow-400'>web, Python, Docker, CI/CD</span>. From frontend finesse to backend brilliance, I tailor solutions to exceed expectations.»</p>",
+            "contactme": "Contact me"
+        }
+    },
+    "experience": {
+        "es": {
+            "title": "Experiencia",
+            "jobs": [
+                {
+                    "company": "Empresa 1",
+                    "position": "Puesto 1",
+                    "date": "desde - hasta",
+                    "summary": "Descripción 1"
+                },
+                {
+                    "company": "Empresa 2",
+                    "position": "Puesto 2",
+                    "date": "desde - hasta",
+                    "summary": "Descripción 2"
+                },
+                {
+                    "company": "Empresa 3",
+                    "position": "Puesto 3",
+                    "date": "desde - hasta",
+                    "summary": "Descripción 3"
+                },
+                {
+                    "company": "Empresa 4",
+                    "position": "Puesto 4",
+                    "date": "desde - hasta",
+                    "summary": "Descripción 4"
+                }
+            ]
+        },
+        "en": {
+            "title": "Experience",
+            "jobs": [
+                {
+                    "company": "Company 1",
+                    "position": "Position 1",
+                    "date": "from - to",
+                    "summary": "Description 1"
+                },
+                {
+                    "company": "Company 2",
+                    "position": "Position 2",
+                    "date": "from - to",
+                    "summary": "Description 2"
+                },
+                {
+                    "company": "Company 3",
+                    "position": "Position 3",
+                    "date": "from - to",
+                    "summary": "Description 3"
+                },
+                {
+                    "company": "Company 4",
+                    "position": "Position 4",
+                    "date": "from - to",
+                    "summary": "Description 4"
+                }
+            ]
+        }
+    },
+    "projects": {
+        "es": {
+            "title": "Proyectos",
+            "code": "Código",
+            "preview": "Ver",
+            "projectslist": [
+                {
+                    "title": "Proyecto 1",
+                    "imgPath": "/src/images/projects/instabot.webp",
+                    "link": "",
+                    "github": "https://github.com/nullgaro/instabot",
+                    "description": "Descripción 1",
+                    "technologies": [
+                        {
+                            "name": "Python",
+                            "styles": "bg-slate-400",
+                            "icon": "PythonIcon"
+                        },
+                        {
+                            "name": "SQL",
+                            "styles": "bg-slate-400",
+                            "icon": "SQLIcon"
+                        },
+                        {
+                            "name": "SQLite",
+                            "styles": "bg-cyan-500",
+                            "icon": "SQLiteIcon"
+                        }
+                    ]
+                },
+                {
+                    "title": "Proyecto 2",
+                    "imgPath": "/src/images/projects/ghfetch.webp",
+                    "link": "",
+                    "github": "https://github.com/ghfetch/ghfetch",
+                    "description": "Descripción 2",
+                    "technologies": [
+                        {
+                            "name": "Python",
+                            "styles": "bg-slate-400",
+                            "icon": "PythonIcon"
+                        },
+                        {
+                            "name": "Github Actions",
+                            "styles": "bg-slate-400 dark:bg-slate-800",
+                            "icon": "GithubActionsIcon"
+                        },
+                        {
+                            "name": "apt",
+                            "styles": "bg-slate-400",
+                            "icon": "DebianIcon"
+                        },
+                        {
+                            "name": "AUR",
+                            "styles": "bg-cyan-500",
+                            "icon": "ArchIcon"
+                        },
+                        {
+                            "name": "pip",
+                            "styles": "bg-indigo-500",
+                            "icon": "PythonIcon"
+                        },
+                        {
+                            "name": "Snapcraft",
+                            "styles": "bg-stone-400 dark:bg-stone-800",
+                            "icon": "SnapcraftIcon"
+                        }
+                    ]
+                },
+                {
+                    "title": "Proyecto 3",
+                    "imgPath": "/src/images/projects/buymeacoffeecalculator.webp",
+                    "link": "",
+                    "github": "https://github.com/nullgaro/buymeacoffee-calculator",
+                    "description": "Descripción 3",
+                    "technologies": [
+                        {
+                            "name": "Python",
+                            "styles": "bg-slate-400",
+                            "icon": "PythonIcon"
+                        },
+                        {
+                            "name": "Selenium",
+                            "styles": "bg-stone-400 dark:bg-stone-800",
+                            "icon": "SeleniumIcon"
+                        }
+                    ]
+                }
+            ]
+        },
+        "en": {
+            "title": "Projects",
+            "code": "Code",
+            "preview": "Preview",
+            "projectslist": [
+                {
+                    "title": "Project 1",
+                    "imgPath": "/src/images/projects/instabot.webp",
+                    "link": "",
+                    "github": "https://github.com/nullgaro/instabot",
+                    "description": "Description 1",
+                    "technologies": [
+                        {
+                            "name": "Python",
+                            "styles": "bg-slate-400",
+                            "icon": "PythonIcon"
+                        },
+                        {
+                            "name": "SQL",
+                            "styles": "bg-slate-400",
+                            "icon": "SQLIcon"
+                        },
+                        {
+                            "name": "SQLite",
+                            "styles": "bg-cyan-500",
+                            "icon": "SQLiteIcon"
+                        }
+                    ]
+                },
+                {
+                    "title": "Proyect 2",
+                    "imgPath": "/src/images/projects/ghfetch.webp",
+                    "link": "",
+                    "github": "https://github.com/ghfetch/ghfetch",
+                    "description": "Description 2",
+                    "technologies": [
+                        {
+                            "name": "Python",
+                            "styles": "bg-slate-400",
+                            "icon": "PythonIcon"
+                        },
+                        {
+                            "name": "Github Actions",
+                            "styles": "bg-slate-400 dark:bg-slate-800",
+                            "icon": "GithubActionsIcon"
+                        },
+                        {
+                            "name": "apt",
+                            "styles": "bg-slate-400",
+                            "icon": "DebianIcon"
+                        },
+                        {
+                            "name": "AUR",
+                            "styles": "bg-cyan-500",
+                            "icon": "ArchIcon"
+                        },
+                        {
+                            "name": "pip",
+                            "styles": "bg-indigo-500",
+                            "icon": "PythonIcon"
+                        },
+                        {
+                            "name": "Snapcraft",
+                            "styles": "bg-stone-400 dark:bg-stone-800",
+                            "icon": "SnapcraftIcon"
+                        }
+                    ]
+                },
+                {
+                    "title": "Project 3",
+                    "imgPath": "/src/images/projects/buymeacoffeecalculator.webp",
+                    "link": "",
+                    "github": "https://github.com/nullgaro/buymeacoffee-calculator",
+                    "description": "Description 3",
+                    "technologies": [
+                        {
+                            "name": "Python",
+                            "styles": "bg-slate-400",
+                            "icon": "PythonIcon"
+                        },
+                        {
+                            "name": "Selenium",
+                            "styles": "bg-stone-400 dark:bg-stone-800",
+                            "icon": "SeleniumIcon"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "aboutme": {
+        "es": {
+            "title": "Sobre mi",
+            "p1": "<p class='mb-6'>Me llamo Daniel pero mis amigos me dicen Búlgaro. Empecé con la informática con pequeños retos y ahora estoy creciendo con <span class='text-yellow-500 dark:text-yellow-400'>grandes proyectos</span>.</p>",
+            "p2": "<p class='mb-6'>Mi mayor virtud es la <span class='text-yellow-500 dark:text-yellow-400'>versatilidad</span> y facilidad de moverme entre tecnologías y ramas. Sigo aprendiendo y mejorando cada día proponiéndome <span class='text-yellow-500 dark:text-yellow-400'>retos que me hagan superar mis limites</span>.</p>",
+            "p3": "<p class='mb-2'>Mis <span class='text-yellow-500 dark:text-yellow-400'>valores</span> los tengo claros:</p>",
+            "l1": "<li class='mb-2'><span class='text-yellow-500 dark:text-yellow-400'>Compañerismo</span>, ayudar y enseñar es la manera correcta de crecer.</li>",
+            "l2": "<li class='mb-2'><span class='text-yellow-500 dark:text-yellow-400'>Perfeccionismo</span>, es cierto que lo perfecto no existe, pero si ese es tu objetivo, tu resultado será abrumador.</li>",
+            "l3": "<li><span class='text-yellow-500 dark:text-yellow-400'>Perseverante</span>, sin duda hay momentos que te hacen dudar o querer rendirte, pero eso no nos detendrá.</li>"
+        },
+        "en": {
+            "title": "About me",
+            "p1": "<p class='mb-6'>My name is Daniel but my friends call me Bulgarian. I started in IT with small challenges and now I am growing with <span class='text-yellow-500 dark:text-yellow-400'>big projects</span>.</p>",
+            "p2": "<p class='mb-6'>My greatest virtue is my <span class='text-yellow-500 dark:text-yellow-400'>versatility1</span> and ease of moving between technologies and branches. I keep learning and improving every day, setting myself <span class='text-yellow-500 dark:text-yellow-400'>challenges that make me go beyond my limits</span>.</p>",
+            "p3": "<p class='mb-2'>I have clear <span class='text-yellow-500 dark:text-yellow-400'>values</span>:</p>",
+            "l1": "<li class='mb-2'><span class='text-yellow-500 dark:text-yellow-400'>Companionship</span>, helping and teaching is the right way to grow.</li>",
+            "l2": "<li class='mb-2'><span class='text-yellow-500 dark:text-yellow-400'>Perfectionism</span>, it is true that perfection does not exist, but if that is your goal, your result will be overwhelming.</li>",
+            "l3": "<li><span class='text-yellow-500 dark:text-yellow-400'>Perseverance</span>, no doubt there are moments that make you doubt or want to give up, but that will not stop us.</li>"
+        }
+    },
+    "footer": {
+        "es": {
+            "text": "© 2024 Nullgaro. Casi todos los derechos reservados :)",
+            "code": "Código del portfolio"
+        },
+        "en": {
+            "text": "© 2024 Nullgaro. Almost all rights reserved :)",
+            "code": "Portfolio code"
+        }
+    }
+}
