@@ -7,7 +7,7 @@ import { configuration } from "../data.json";
 
 const { theme, light, dark, system, languages, spanish, english } = configuration[lang];
 ---
-<button onmouseover="showDrowpdown('first-dropdown')" onmouseout="hideDrowpdown('first-dropdown')" class="relative">
+<button aria-label="Configuration" onmouseover="showDrowpdown('first-dropdown')" onmouseout="hideDrowpdown('first-dropdown')" class="relative">
     <GearIcon class="size-4 [&>*]:transition [&>*]:hover:stroke-yellow-500 dark:[&>*]:hover:stroke-yellow-400"/>
     <div id="first-dropdown" class="absolute hidden bg-slate-200 dark:bg-slate-600 p-2 border border-white dark:border-neutral-500 shadow-xl rounded-md text-left right-[-2px]">
         <div onmouseover="showDrowpdown('theme-dropdown')" onmouseout="hideDrowpdown('theme-dropdown')">
