@@ -1,0 +1,23 @@
+---
+const { tags } = Astro.props;
+---
+<div class="mb-8 border-b-2 border-t-2 sm:border-t-0 border-b-slate-700 border-t-slate-700 pb-8 pt-8 sm:pt-0">
+    <h3 class="text-xl mb-4 hover:text-yellow-500"><a href="/blog/tags">Tags</a></h3>
+    <ul class="flex flex-wrap gap-2 size-fit">
+        {tags.map((tag) =>{
+            const url = `/blog/tags/${tag}`;
+            return (
+                <li class="text-sm">
+                    <a
+                        href={url}
+                        rel="noopener noreferrer"
+                        role="link"
+                        class="border-2 border-gray-600 rounded-xl px-2 p-1  inline-flex items-center flex-none transition-colors dark:hover:border-gray-100 hover:border-yellow-500"
+                    >
+                        {tag}
+                    </a>
+                </li>
+            )}
+        )}
+    </ul>
+</div>

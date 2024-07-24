@@ -1,0 +1,139 @@
+---
+import Header from "../components/PostHeader.astro"
+import Footer from "../components/PostFooter.astro"
+import Tags from "../components/Tags.astro";
+import Social from "../components/Social.astro";
+import Blogs from "../components/Blogs.astro";
+import Author from "../components/Author.astro";
+import { ViewTransitions } from "astro:transitions"
+
+interface Props {
+    title: string
+    description: string
+    lang: string
+}
+
+const { frontmatter } = Astro.props
+
+const title = `Blog de Daniel Milenov - ${frontmatter.title}`
+const description = frontmatter.description
+const lang = "es"
+
+const pubDate = new Date(frontmatter.pubDate).toLocaleDateString()
+const updDate = frontmatter.updDate ? new Date(frontmatter.updDate).toLocaleDateString() : false
+
+---
+
+<!doctype html>
+<html lang={lang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <ViewTransitions />
+    </head>
+
+    <body class="relative text-black bg-slate-100 dark:text-white dark:bg-slate-900 flex justify-center items-center">
+        <div class=`w-full flex flex-col justify-center items-center` style=`background-image: url('${frontmatter.image}');`>
+            <Header lang={lang}/>
+            <h1 class="text-3xl sm:text-5xl mt-48 mb-8">{frontmatter.title}</h1>
+            <Author pubDate={pubDate} updDate={updDate} />
+        </div>
+        <div class="flex flex-col items-center sm:flex-row size-full mt-8">
+            <aside class="w-full sm:w-1/4 p-4 sm:p-8">
+                <!-- content table -->
+            </aside>
+            <main>
+                <article class="h-full p-4 sm:p-8 border-r-2 border-l-2 border-r-slate-700 border-l-slate-700">
+                    <slot />
+                </article>
+            </main>
+            <aside class="w-full sm:w-1/4 p-4 sm:p-8">
+                <Tags tags={frontmatter.tags}/>
+                <Social />
+                <Blogs />
+            </aside>
+        </div>
+        <Footer lang={lang}/>
+        <style is:global>
+            @font-face {
+                font-family: 'montserrat';
+                src: url('/fonts/montserrat.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'blemo';
+                src: url('/fonts/blemo.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            :root {
+                color-scheme: light dark;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                overscroll-behavior: none;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: "blemo";
+            }
+
+            article > h1 {
+                /* text-4xl */
+                font-size: 2.25rem; /* 36px */
+                line-height: 2.5rem; /* 40px */
+                font-weight: bolder;
+                margin-bottom: 2rem; /* 32px */
+            }
+
+            article > h2 {
+                /* text-2xl */
+                font-size: 1.5rem; /* 24px */
+                line-height: 2rem; /* 32px */
+                font-weight: bold;
+                margin-top: 2rem; /* 32px */
+                margin-bottom: 1rem; /* 32px */
+            }
+
+            article > h3 {
+                /* text-xl */
+                font-size: 1.25rem; /* 20px */
+                line-height: 1.75rem; /* 28px */
+                font-weight: bold;
+                margin-top: 2rem; /* 32px */
+                margin-bottom: 1rem; /* 32px */
+            }
+
+            article > h4 {
+                /* text-lg */
+                font-size: 1.125rem; /* 18px */
+                line-height: 1.75rem; /* 28px */
+                margin-top: 2rem; /* 32px */
+                margin-bottom: 1rem; /* 32px */
+            }
+
+            article > p {
+                margin-bottom: 0.5rem; /* 4px */
+            }
+
+            p, a , ul, ol, li {
+                font-family: "montserrat";
+            }
+        </style>
+    </body>
+</html>

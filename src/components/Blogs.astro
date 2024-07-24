@@ -1,0 +1,42 @@
+---
+import DevToIcon from "./icons/DevToIcon.astro";
+import MediumIcon from "./icons/MediumIcon.astro";
+
+const linkItems = [
+    {
+        title: "Dev.to",
+        label: "dev.to",
+        url: "https://dev.to/nullgaro",
+        icon: DevToIcon,
+    },
+    {
+        title: "Medium",
+        label: "medium",
+        url: "https://medium.com/@nullgaro",
+        icon: MediumIcon,
+    },
+]
+---
+<div class="mb-8">
+    <h3 class="text-xl mb-4">You can read me in:</h3>
+    <ul class="flex flex-col flex-wrap gap-2 size-fit">
+        {linkItems.map((link) =>{
+            const IconComponent = link.icon;
+            return (
+                <li class="text-sm">
+                    <a
+                        href={link.url}
+                        aria-label={link.label}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        role="link"
+                        class="px-2 p-1 inline-flex items-center flex-none transition-colors hover:text-yellow-500"
+                    >
+                        <IconComponent class="size-4 mr-2"/>
+                        {link.title}
+                    </a>
+                </li>
+            )}
+        )}
+    </ul>
+</div>

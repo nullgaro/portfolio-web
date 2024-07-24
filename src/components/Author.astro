@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets"
+
+import ProfilePic from "/src/images/photo.webp";
+
+const { pubDate, updDate } = Astro.props
+---
+<div class="w-fit flex flex-row gap-1 sm:gap-2 text-xs sm:text-xl mb-4 justify-between items-center">
+    <Image src={ProfilePic} alt="profile" class="size-4 sm:size-8 rounded-full"/>
+    <h2>Nullgaro</h2>
+    <p> at </p>
+    <date>{pubDate}</date>
+    {
+        updDate && (
+            <p> Updated at </p>
+            <date>{updDate}</date>
+        )
+    }
+</div>

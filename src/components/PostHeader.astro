@@ -1,0 +1,56 @@
+---
+// import { getRelativeLocaleUrl } from 'astro:i18n';
+
+import Configuration from "./Configuration.astro";
+
+// const { lang } = Astro.props;
+
+// import { header } from "../data.json";
+
+// const { experience, projects, skills, aboutme } = header[lang];
+
+// const navItems = [
+//     {
+//         ...experience,
+//         url: getRelativeLocaleUrl(lang, "/#experience").slice(0, -1),
+//     },
+//     {
+//         ...projects,
+//         url: getRelativeLocaleUrl(lang, "/#projects").slice(0, -1),
+//     },
+//     {
+//         ...aboutme,
+//         url: getRelativeLocaleUrl(lang, "/#about-me").slice(0, -1),
+//     },
+// ]
+const lang = "es";
+
+const navItems = [
+    {
+        title: "Home",
+        label: "home",
+        url: "/blog",
+    },
+    {
+        title: "Portfolio",
+        label: "portfolio",
+        url: "/",
+    },
+]
+---
+<header class="min-w-full flex flex-row justify-center pt-4">
+    <nav class="xxs:min-w-96 min-w-full flex flex-row flex-none justify-around bg-slate-200 dark:bg-slate-500 shadow-lg dark:shadow-none p-2 rounded-2xl text-sm">
+        {
+            navItems.map((link) => (
+                <a
+                class="transition hover:text-yellow-500 dark:hover:text-yellow-400 xxs:text-sm text-xs"
+                aria-label={link.label}
+                href={link.url}
+                >
+                    {link.title}
+                </a>
+            ))
+        }
+        <Configuration lang={lang}/>
+    </nav>
+</header>
