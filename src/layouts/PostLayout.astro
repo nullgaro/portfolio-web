@@ -48,11 +48,11 @@ const updDate = frontmatter.updDate ? new Date(frontmatter.updDate).toLocaleDate
                 <!-- content table -->
             </aside>
             <main>
-                <article class="h-full p-4 sm:p-8 border-r-2 border-l-2 border-r-slate-700 border-l-slate-700">
+                <article class="h-full p-4 sm:p-8 border-x-0 sm:border-x-2 border-x-slate-700">
                     <slot />
                 </article>
             </main>
-            <aside class="w-full sm:w-1/4 p-4 sm:p-8">
+            <aside class="w-full sm:w-1/4 p-4 sm:p-8 border-t-2 border-t-slate-700 sm:border-t-0">
                 <Tags tags={frontmatter.tags}/>
                 <Social />
                 <Blogs />
