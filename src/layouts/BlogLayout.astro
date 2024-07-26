@@ -1,0 +1,83 @@
+---
+import Header from "../components/PostHeader.astro"
+import Footer from "../components/PostFooter.astro"
+import Social from "../components/Social.astro";
+import Blogs from "../components/Blogs.astro";
+import { ViewTransitions } from "astro:transitions"
+
+const title = "Blog de Daniel Milenov"
+const description = "Mantente al día del mundo IT con las publicaciones diaria de Nullgaro"
+const lang = "es"
+---
+
+<!doctype html>
+<html lang={lang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <ViewTransitions />
+    </head>
+
+    <body class="relative text-black bg-slate-100 dark:text-white dark:bg-slate-900 flex justify-center items-center">
+        <div class=`w-full flex flex-col justify-center items-center`>
+            <Header lang={lang}/>
+            <h1 class="text-3xl sm:text-5xl mt-48 mb-8">Blog de Nullgaro</h1>
+        </div>
+        <div class="flex flex-col xl:flex-row size-full mt-8">
+            <aside class="w-full xl:w-1/4 p-4 sm:p-8">
+                <!-- content table -->
+            </aside>
+            <main class="h-full w-full p-4 xl:p-8 border-x-0 xl:border-x-2 border-x-slate-700">
+                <slot />
+            </main>
+            <aside class="w-full xl:w-1/4 p-4 sm:p-8 border-t-2 border-t-slate-700 xl:border-t-0">
+                <Social />
+                <Blogs />
+            </aside>
+        </div>
+        <Footer lang={lang}/>
+        <style is:global>
+            @font-face {
+                font-family: 'montserrat';
+                src: url('/fonts/montserrat.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            @font-face {
+                font-family: 'blemo';
+                src: url('/fonts/blemo.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            :root {
+                color-scheme: light dark;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                overscroll-behavior: none;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                font-family: "blemo";
+            }
+
+            p, a , ul, ol, li {
+                font-family: "montserrat";
+            }
+        </style>
+    </body>
+</html>

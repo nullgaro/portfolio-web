@@ -1,0 +1,27 @@
+---
+import BlogPreview from "../../components/BlogPreview.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+const allPosts = await Astro.glob('./posts/*.md');
+---
+<BlogLayout
+>
+    <ul class="w-full">
+        {allPosts.map((post) => {
+            const pubDate = new Date(post.frontmatter.pubDate).toLocaleDateString()
+            const updDate = post.frontmatter.updDate ? new Date(post.frontmatter.updDate).toLocaleDateString() : false
+
+            return (
+                <BlogPreview
+                        url={post.url}
+                        title={post.frontmatter.title}
+                        description={post.frontmatter.description}
+                        pubDate={pubDate}
+                        updDate={updDate}
+                        image={post.frontmatter.image}
+                        tags={post.frontmatter.tags}
+                />
+            )}
+        )}
+    </ul>
+</BlogLayout>
