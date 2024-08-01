@@ -6,6 +6,21 @@ const { lang } = Astro.props;
 import { configuration } from "../data.json";
 
 const { theme, light, dark, system, languages, spanish, english } = configuration[lang];
+
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import astroConfig from "../../astro.config.mjs";
+
+const currentLocale = Astro.currentLocale
+const defaultLocale = astroConfig.i18n.defaultLocale
+
+const currentPathWithoutI18n = currentLocale === defaultLocale ? Astro.url.pathname : Astro.url.pathname.replace(`/${currentLocale}`, "")
+
+// defaultLocale is "es"
+const currentUrlEs = getRelativeLocaleUrl("es", `${currentPathWithoutI18n}`).slice(0, -1);
+const currentUrlEn = getRelativeLocaleUrl("en", `${currentPathWithoutI18n}`).slice(0, -1);
+console.log(currentUrlEn, currentUrlEs)
+console.log(Astro.url)
+
 ---
 <button aria-label="configuration" onmouseover="showDrowpdown('first-dropdown')" onmouseout="hideDrowpdown('first-dropdown')" class="relative">
     <GearIcon class="size-4 [&>*]:transition [&>*]:hover:stroke-yellow-500 dark:[&>*]:hover:stroke-yellow-400"/>
@@ -21,8 +36,8 @@ const { theme, light, dark, system, languages, spanish, english } = configuratio
         <div onmouseover="showDrowpdown('language-dropdown')" onmouseout="hideDrowpdown('language-dropdown')">
             <p class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{languages}</p>
             <ul id="language-dropdown" class="absolute hidden bg-slate-200 dark:bg-slate-600 p-2 border border-white dark:border-neutral-500 shadow-xl rounded-md">
-                <li onclick="window.location.assign('/')" class="transition hover:text-yellow-500 dark:hover:text-yellow-400">{spanish}</li>
-                <li onclick="window.location.assign('/en/')" class="transition hover:text-yellow-500 dark:hover:text-yellow-400">{english}</li>
+                <li onclick=`window.location.assign("${currentUrlEs}")` class="transition hover:text-yellow-500 dark:hover:text-yellow-400">{spanish}</li>
+                <li onclick=`window.location.assign("${currentUrlEn}")` class="transition hover:text-yellow-500 dark:hover:text-yellow-400">{english}</li>
             </ul>
         </div>
     </div>
