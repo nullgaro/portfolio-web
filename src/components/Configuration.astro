@@ -18,9 +18,6 @@ const currentPathWithoutI18n = currentLocale === defaultLocale ? Astro.url.pathn
 // defaultLocale is "es"
 const currentUrlEs = getRelativeLocaleUrl("es", `${currentPathWithoutI18n}`).slice(0, -1);
 const currentUrlEn = getRelativeLocaleUrl("en", `${currentPathWithoutI18n}`).slice(0, -1);
-console.log(currentUrlEn, currentUrlEs)
-console.log(Astro.url)
-
 ---
 <button aria-label="configuration" onmouseover="showDrowpdown('first-dropdown')" onmouseout="hideDrowpdown('first-dropdown')" class="relative">
     <GearIcon class="size-4 [&>*]:transition [&>*]:hover:stroke-yellow-500 dark:[&>*]:hover:stroke-yellow-400"/>

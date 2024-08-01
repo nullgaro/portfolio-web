@@ -5,7 +5,7 @@ import Tags from "../components/Tags.astro";
 import Social from "../components/Social.astro";
 import Blogs from "../components/Blogs.astro";
 import Author from "../components/Author.astro";
-import { ViewTransitions } from "astro:transitions"
+// import { ViewTransitions } from "astro:transitions"
 
 interface Props {
     title: string
@@ -37,7 +37,7 @@ const updDate = frontmatter.updDate ? new Date(frontmatter.updDate).toLocaleDate
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
         <meta name="description" content={description} />
-        <ViewTransitions />
+        <!-- <ViewTransitions /> -->
     </head>
 
     <body class="relative text-black bg-slate-100 dark:text-white dark:bg-slate-900 flex justify-center items-center">
