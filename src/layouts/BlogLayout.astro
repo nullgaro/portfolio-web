@@ -5,9 +5,14 @@ import Social from "../components/Social.astro";
 import Blogs from "../components/Blogs.astro";
 import { ViewTransitions } from "astro:transitions"
 
-const title = "Blog de Daniel Milenov"
+// const title = "Blog de Daniel Milenov"
 const description = "Mantente al día del mundo IT con las publicaciones diaria de Nullgaro"
-const lang = "es"
+
+const { lang } = Astro.props
+
+import { blogtitle } from "../data.json";
+
+const title = blogtitle[lang];
 ---
 
 <!doctype html>
@@ -26,7 +31,7 @@ const lang = "es"
     <body class="relative text-black bg-slate-100 dark:text-white dark:bg-slate-900 flex justify-center items-center">
         <div class=`w-full flex flex-col justify-center items-center`>
             <Header lang={lang}/>
-            <h1 class="text-3xl sm:text-5xl mt-48 mb-8">Blog de Nullgaro</h1>
+            <h1 class="text-3xl sm:text-5xl mt-48 mb-8">{title}</h1>
         </div>
         <div class="flex flex-col xl:flex-row size-full mt-8">
             <aside class="w-full xl:w-1/4 p-4 sm:p-8">
@@ -36,8 +41,8 @@ const lang = "es"
                 <slot />
             </main>
             <aside class="w-full xl:w-1/4 p-4 sm:p-8 border-t-2 border-t-slate-700 xl:border-t-0">
-                <Social />
-                <Blogs />
+                <Social lang={lang}/>
+                <Blogs lang={lang}/>
             </aside>
         </div>
         <Footer lang={lang}/>

@@ -2,6 +2,12 @@
 import DevToIcon from "./icons/DevToIcon.astro";
 import MediumIcon from "./icons/MediumIcon.astro";
 
+const { lang } = Astro.props;
+
+import { readme } from "../data.json";
+
+const text = readme[lang];
+
 const linkItems = [
     {
         title: "Dev.to",
@@ -18,7 +24,7 @@ const linkItems = [
 ]
 ---
 <div class="mb-8">
-    <h3 class="text-xl mb-4">You can read me in:</h3>
+    <h3 class="text-xl mb-4">{text}</h3>
     <ul class="flex flex-col flex-wrap gap-2 size-fit">
         {linkItems.map((link) =>{
             const IconComponent = link.icon;

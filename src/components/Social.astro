@@ -3,6 +3,12 @@ import DevIcon from "./icons/DevIcon.astro"
 import LinkedinIcon from "./icons/LinkedinIcon.astro"
 import GithubIcon from "./icons/GithubIcon.astro"
 
+const { lang } = Astro.props;
+
+import { knowme } from "../data.json";
+
+const text = knowme[lang];
+
 const linkItems = [
     {
         title: "Portfolio",
@@ -25,7 +31,7 @@ const linkItems = [
 ]
 ---
 <div class="mb-8 border-b-2 border-b-slate-700 pb-8">
-    <h3 class="text-xl mb-4">Get to know me:</h3>
+    <h3 class="text-xl mb-4">{text}</h3>
     <ul class="flex flex-col flex-wrap gap-2 size-fit">
         {linkItems.map((link) =>{
             const IconComponent = link.icon;

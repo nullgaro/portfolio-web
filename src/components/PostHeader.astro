@@ -1,40 +1,22 @@
 ---
-// import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 import Configuration from "./Configuration.astro";
 
-// const { lang } = Astro.props;
+const { lang } = Astro.props;
 
-// import { header } from "../data.json";
+import { postheader } from "../data.json";
 
-// const { experience, projects, skills, aboutme } = header[lang];
-
-// const navItems = [
-//     {
-//         ...experience,
-//         url: getRelativeLocaleUrl(lang, "/#experience").slice(0, -1),
-//     },
-//     {
-//         ...projects,
-//         url: getRelativeLocaleUrl(lang, "/#projects").slice(0, -1),
-//     },
-//     {
-//         ...aboutme,
-//         url: getRelativeLocaleUrl(lang, "/#about-me").slice(0, -1),
-//     },
-// ]
-const lang = "es";
+const { home, portfolio } = postheader[lang];
 
 const navItems = [
     {
-        title: "Home",
-        label: "home",
-        url: "/blog",
+        ...home,
+        url: getRelativeLocaleUrl(lang, "/blog").slice(0, -1),
     },
     {
-        title: "Portfolio",
-        label: "portfolio",
-        url: "/",
+        ...portfolio,
+        url: getRelativeLocaleUrl(lang, "/ ").slice(0, -1),
     },
 ]
 ---

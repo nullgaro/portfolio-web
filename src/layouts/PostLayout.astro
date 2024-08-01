@@ -15,15 +15,18 @@ interface Props {
 
 const { frontmatter } = Astro.props
 
-const title = `Blog de Daniel Milenov - ${frontmatter.title}`
+const lang = frontmatter.lang || "en"
+
+import { blogtitle } from "../data.json";
+
+const title = `${blogtitle[lang]} - ${frontmatter.title}`;
+
 const description = frontmatter.description
-const lang = "es"
 
 const pubDate = new Date(frontmatter.pubDate).toLocaleDateString()
 const updDate = frontmatter.updDate ? new Date(frontmatter.updDate).toLocaleDateString() : false
 
 ---
-
 <!doctype html>
 <html lang={lang}>
     <head>
@@ -41,7 +44,7 @@ const updDate = frontmatter.updDate ? new Date(frontmatter.updDate).toLocaleDate
         <div class=`w-full flex flex-col justify-center items-center` style=`background-image: url('${frontmatter.image}');`>
             <Header lang={lang}/>
             <h1 class="text-3xl sm:text-5xl mt-48 mb-8">{frontmatter.title}</h1>
-            <Author pubDate={pubDate} updDate={updDate} />
+            <Author pubDate={pubDate} updDate={updDate} lang={lang}/>
         </div>
         <div class="flex flex-col sm:flex-row size-full mt-8">
             <aside class="w-full sm:w-1/4 p-4 sm:p-8">
@@ -54,8 +57,8 @@ const updDate = frontmatter.updDate ? new Date(frontmatter.updDate).toLocaleDate
             </main>
             <aside class="w-full sm:w-1/4 p-4 sm:p-8 border-t-2 border-t-slate-700 sm:border-t-0">
                 <Tags tags={frontmatter.tags}/>
-                <Social />
-                <Blogs />
+                <Social lang={lang}/>
+                <Blogs lang={lang}/>
             </aside>
         </div>
         <Footer lang={lang}/>
