@@ -41,9 +41,9 @@ const updDate = frontmatter.updDate ? new Date(frontmatter.updDate).toLocaleDate
     </head>
 
     <body class="relative text-black bg-slate-100 dark:text-white dark:bg-slate-900 flex justify-center items-center">
-        <div class=`w-full flex flex-col justify-center items-center` style=`background-image: url('${frontmatter.image}');`>
+        <div class="w-full flex flex-col justify-center items-center bg-no-repeat bg-cover backdrop-blur-3xl" style=`background-image: url('${frontmatter.image}');`>
             <Header lang={lang}/>
-            <h1 class="text-3xl sm:text-5xl/[1.25] mt-48 mb-8 text-center">{frontmatter.title}</h1>
+            <h1 class="text-3xl sm:text-5xl/[1.25] mt-48 mb-8 text-center dark:drop-shadow-around-dark drop-shadow-around-light">{frontmatter.title}</h1>
             <Author pubDate={pubDate} updDate={updDate} lang={lang}/>
         </div>
         <div class="flex flex-col sm:flex-row size-full mt-8">
