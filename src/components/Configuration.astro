@@ -1,5 +1,8 @@
 ---
 import GearIcon from "./icons/GearIcon.astro";
+import SunIcon from "./icons/SunIcon.astro";
+import MoonIcon from "./icons/MoonIcon.astro";
+import ComputerIcon from "./icons/ComputerIcon.astro";
 
 const { lang } = Astro.props;
 
@@ -16,34 +19,35 @@ const defaultLocale = astroConfig.i18n.defaultLocale
 const currentPathWithoutI18n = currentLocale === defaultLocale ? Astro.url.pathname : Astro.url.pathname.replace(`/${currentLocale}`, "")
 
 // defaultLocale is "es"
-const currentUrlEs = getRelativeLocaleUrl("es", `${currentPathWithoutI18n}`).slice(0, -1);
+const currentUrlEs = getRelativeLocaleUrl("es", `${currentPathWithoutI18n}`);
 const currentUrlEn = getRelativeLocaleUrl("en", `${currentPathWithoutI18n}`).slice(0, -1);
 ---
 <button aria-label="configuration" onmouseover="showDrowpdown('first-dropdown')" onmouseout="hideDrowpdown('first-dropdown')" class="relative">
     <GearIcon class="size-4 [&>*]:transition [&>*]:hover:stroke-yellow-500 dark:[&>*]:hover:stroke-yellow-400"/>
-    <div id="first-dropdown" class="absolute hidden bg-slate-200 dark:bg-slate-600 p-2 border border-white dark:border-neutral-500 shadow-xl rounded-md text-left right-[-2px]">
-        <div onmouseover="showDrowpdown('theme-dropdown')" onmouseout="hideDrowpdown('theme-dropdown')">
-            <p class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{theme}</p>
-            <ul id="theme-dropdown" class=`absolute hidden bg-slate-200 dark:bg-slate-600 p-2 border border-white dark:border-neutral-500 shadow-xl rounded-md ${lang === "en" ? "right-[5rem]" : "right-[4rem]"} top-0`>
-                <li onclick="setTheme('light')" class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{light}</li>
-                <li onclick="setTheme('dark')" class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{dark}</li>
-                <li onclick="setTheme('system')" class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{system}</li>
-            </ul>
-        </div>
-        <div onmouseover="showDrowpdown('language-dropdown')" onmouseout="hideDrowpdown('language-dropdown')">
-            <p class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">{languages}</p>
-            <ul id="language-dropdown" class="absolute hidden bg-slate-200 dark:bg-slate-600 p-2 border border-white dark:border-neutral-500 shadow-xl rounded-md">
-                <li onclick=`window.location.assign("${currentUrlEs}")` class="transition hover:text-yellow-500 dark:hover:text-yellow-400">{spanish}</li>
-                <li onclick=`window.location.assign("${currentUrlEn}")` class="transition hover:text-yellow-500 dark:hover:text-yellow-400">{english}</li>
-            </ul>
-        </div>
+    <div id='first-dropdown' class="h-16 w-24 absolute hidden flex-col justify-around bg-slate-200 dark:bg-slate-600 p-2 border border-white dark:border-neutral-500 shadow-xl rounded-md text-left right-[-2px]">
+        <ul id="theme-dropdown" class="flex items-center justify-around w-full">
+            <li id="light" onclick="setTheme('light')" class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">
+                <SunIcon class="size-4 [&>*]:transition [&>*]:hover:stroke-yellow-500 dark:[&>*]:hover:stroke-yellow-400"/>
+            </li>
+            <li id="dark" onclick="setTheme('dark')" class=" transition hover:text-yellow-500 dark:hover:text-yellow-400">
+                <MoonIcon class="size-4 [&>*]:transition [&>*]:hover:stroke-yellow-500 dark:[&>*]:hover:stroke-yellow-400"/>
+            </li>
+            <li id="system" onclick="setTheme('system')" class="transition hover:text-yellow-500 dark:hover:text-yellow-400">
+                <ComputerIcon class="size-4 [&>*]:transition [&>*]:hover:fill-yellow-500 dark:[&>*]:hover:fill-yellow-400"/>
+            </li>
+        </ul>
+        <ul id="language-dropdown" class="flex justify-around w-full">
+            <li id="es" onclick=`window.location.assign("${currentUrlEs}")` class=`transition hover:text-yellow-500 dark:hover:text-yellow-400 ${lang === "es" ? "text-yellow-400" : ""}`>es</li>
+            <li id="en" onclick=`window.location.assign("${currentUrlEn}")` class=`transition hover:text-yellow-500 dark:hover:text-yellow-400 ${lang === "en" ? "text-yellow-400" : ""}`>en</li>
+        </ul>
     </div>
 </button>
-<script is:inline >
+<script is:inline>
     function showDrowpdown(id) {
         const DropDown = document.getElementById(id);
-        DropDown.style.display = "inline";
+        DropDown.style.display = "flex";
     }
+
     function hideDrowpdown(id) {
         const DropDown = document.getElementById(id);
         const Button = document.getElementsByTagName("button")[0];
@@ -95,6 +99,24 @@ const currentUrlEn = getRelativeLocaleUrl("en", `${currentPathWithoutI18n}`).sli
             localStorage.setItem("theme", theme)
             document.documentElement.style.setProperty("color-scheme", theme);
         }
+        selectedConfig()
         updateTheme()
     }
+
+    function selectedConfig() {
+        const lightElements = [...document.getElementById("light").children[0].children]
+        lightElements.forEach(element => { element.classList.remove("stroke-yellow-500", "dark:stroke-yellow-500")});
+        const darkElements = [...document.getElementById("dark").children[0].children];
+        darkElements.forEach(element => { element.classList.remove("stroke-yellow-500", "dark:stroke-yellow-500")});
+        const systemElements = [...document.getElementById("system").children[0].children];
+        systemElements.forEach(element => { element.classList.remove("fill-yellow-500", "dark:fill-yellow-500")});
+
+        const selectedTheme = document.getElementById(getThemePreference());
+
+        const svgElements = [...selectedTheme.children[0].children]
+        svgElements.forEach(element => {
+            selectedTheme.id !== "system" ? element.classList.add("stroke-yellow-500", "dark:stroke-yellow-500") : element.classList.add("fill-yellow-500", "dark:fill-yellow-500");
+        });
+    }
+    selectedConfig()
 </script>
