@@ -25,27 +25,24 @@ const iconComponents = {
     DebianIcon
 };
 
-import type { ImageMetadata } from 'astro';
-import { Image } from "astro:assets";
-
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/projects/*.webp')
-if (!images[imgPath]) throw new Error(`"${imgPath}" does not exist in glob: "src/images/projects/*.webp"`);
+const images = import.meta.glob<{ default: string }>('/src/images/projects/*.webp', { eager: true });
+const imgSrc = images[`${imgPath}`]?.default['src'];
 ---
 <div class="h-full flex md:p-0 sm:p-12 p-0 w-full flex-col justify-center md:mb-20 sm:mb-0 mb-12">
     <div class="lg:h-full md:h-80 lg:w-[64rem] md:w-[45rem] flex md:flex-row flex-col justify-around">
-        <Image src={images[imgPath]()} alt={title} class="object-contain lg:h-64 md:h-full md:w-6/12 w-full mb-8 bg-slate-800 rounded-xl" />
+        <img src={imgSrc} alt={title} class="object-contain lg:h-64 md:h-full md:w-6/12 w-full mb-8 bg-slate-800 rounded-xl" />
         <div class="lg:h-64 md:h-full md:w-5/12 w-full flex flex-col justify-between">
             <div class="mb-8">
                 <h3 class="text-xl font-black mb-4">{ title }</h3>
                 <ul class="flex flex-wrap mb-4">
                     { technologies.map(({icon, name, styles}) => {
-                    const IconComponent = iconComponents[icon];
-                    return (
-                    <li class={`text-md mr-2 mb-2 border-0 rounded-2xl py-1 px-2 flex ${styles}`}>
-                        <IconComponent class="size-6 mr-2"/>
-                        {name}
-                    </li>
-                    )
+                        const IconComponent = iconComponents[icon];
+                        return (
+                        <li class={`text-md mr-2 mb-2 border-0 rounded-2xl py-1 px-2 flex ${styles}`}>
+                            <IconComponent class="size-6 mr-2"/>
+                            {name}
+                        </li>
+                        )
                     })}
                 </ul>
                 <p class="text-md max-w-[70ch] font-extralight">{ description }</p>
@@ -56,8 +53,7 @@ if (!images[imgPath]) throw new Error(`"${imgPath}" does not exist in glob: "src
                     {code}
                 </ProjectLink>
 
-                {
-                    link &&
+                { link &&
                     <ProjectLink href={ link }>
                         <LinkIcon class="size-6 mr-2" />
                         {preview}

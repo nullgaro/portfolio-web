@@ -1,6 +1,6 @@
 ---
 import Header from "../components/PostHeader.astro"
-import Footer from "../components/PostFooter.astro"
+import Footer from "../components/Footer.astro"
 import Tags from "../components/Tags.astro";
 import Social from "../components/Social.astro";
 import Blogs from "../components/Blogs.astro";
@@ -137,6 +137,11 @@ const updDate = frontmatter.updDate ? new Date(frontmatter.updDate).toLocaleDate
             article a {
                 color: rgb(202 138 4);
                 text-decoration: underline;
+            }
+
+            article img {
+                heigth: auto;
+                width: auto;
             }
 
             article a:hover {
