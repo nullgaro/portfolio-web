@@ -1,9 +1,6 @@
 ---
 import PersonIcon from "./icons/PersonIcon.astro";
 
-import {Image} from "astro:assets";
-import MePic from "./../images/me.webp"
-
 const { lang } = Astro.props
 
 // Texts
@@ -20,7 +17,7 @@ const l3 = aboutme[lang].l3;
 <div id="about-me" data-section="about-me" class="h-full flex justify-center w-full md:mb-16 mb-8">
     <div class="h-full w-[64rem] p-4">
         <div class="inline-flex flex-row items-center w-52 mb-8">
-            <PersonIcon class="size-10 mr-2"/>i alt
+            <PersonIcon class="size-10 mr-2"/>
             <h2 class="text-2xl">{title}</h2>
         </div>
         <div class="flex justify-around md:flex-row flex-col-reverse items-center">
