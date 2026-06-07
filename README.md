@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repository has been archived. New personal website available in [nullgaro/nullgaro.com](https://github.com/nullgaro/nullgaro.com)
+
 # Portfolio Web
 
 > An elegant personal portfolio showcasing your work, built with Astro and Tailwind CSS.
